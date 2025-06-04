@@ -3,7 +3,7 @@ const clear = document.querySelector(".clear");
 const equal = document.querySelector(".equal");
 const values = document.querySelector(".cal_values");
 const display = document.querySelector(".final_value");
-const parenthesis = document.querySelector(".parentheses");
+let parenthesis = document.querySelector(".parentheses");
 
 buttons.forEach((btns) => {
   btns.addEventListener("click", () => {
@@ -31,9 +31,29 @@ parenthesis.addEventListener("click", () => {
   openBracket = !openBracket;
 });
 
+function insertImplicitMultiplication(expr) {
+  return (
+    expr
+      // Insert * between number and (
+      .replace(/(\d)(\()/g, "$1*$2")
+      // Insert * between ) and number
+      .replace(/(\))(\d)/g, "$1*$2")
+      // Insert * between ) and (
+      .replace(/(\))(\()/g, "$1*$2")
+  );
+}
+
 equal.addEventListener("click", () => {
   try {
-    display.value = eval(values.value);
+    let expr = values.value;
+
+    // Replace percentages first
+    expr = expr.replace(/(\d+(\.\d+)?)%/g, "($1/100)");
+
+    // Insert implicit multiplication operators
+    expr = insertImplicitMultiplication(expr);
+
+    display.value = eval(expr);
   } catch (error) {
     values.value = "Error";
   }
