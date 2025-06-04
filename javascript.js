@@ -36,6 +36,5 @@ equal.addEventListener("click", () => {
     display.value = eval(values.value);
   } catch (error) {
     values.value = "Error";
-    display.value = "";
   }
 });
