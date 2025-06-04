@@ -1,0 +1,123 @@
+/* Calculator App Styles */
+body {
+  background: #f3f4f6;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.calculator_container {
+  background: #113146;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator_container h2 {
+  color: white;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.cal_values,
+.final_value {
+  width: 90%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.7rem;
+  border: none;
+  font-size: 2rem;
+  background: #113146;
+  color: white;
+  outline: none;
+  text-align: right;
+}
+.final_value {
+  background: #113146;
+  color: white;
+  font-weight: bold;
+  border-bottom: 1px solid white;
+  font-size: 3rem;
+}
+
+button {
+  border: none;
+  border-radius: 0.7rem;
+  margin: 0.3rem;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.btns {
+  background: #113146;
+  color: white;
+  font-weight: 600;
+}
+
+.btn {
+  background: #113146;
+  color: white;
+}
+
+.multiply,
+.divide,
+.addition,
+.substraction,
+.percentage,
+.parentheses {
+  background: #113146;
+  color: #3ad1c2;
+  font-weight: 700;
+}
+
+.clear {
+  color: tomato;
+}
+.equal {
+  background: #3ad1c2;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(154, 140, 152, 0.15);
+}
+
+button:active {
+  background: #22223b;
+  color: #f2e9e4;
+}
+
+.calculator_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.calculator_container h2,
+.cal_values,
+.final_value {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 400px) {
+  .calculator_container {
+    width: 98vw;
+    padding: 1rem 0.2rem;
+  }
+  .cal_values,
+  .final_value {
+    font-size: 1rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 0.7rem 0.7rem;
+  }
+}
